@@ -179,13 +179,13 @@ bot.on('message', async message => {
                     const info = await spdl.getInfo(args)
 
                     song = new Song(args, `${info.artists} - ${info.title}`, info.thumbnail, formatDuration(info.duration))
-                    song = server.addSong(song)
+                    server.addSong(song)
                 } else {
 
                     let results = await Search(args)
 
                     song = new Song(results.items[0].url, results.items[0].title, results.items[0].bestThumbnail.url, results.items[0].duration)
-                    song = server.addSong(song)
+                    server.addSong(song)
                 }
 
                 if (!message.guild.voice) {
